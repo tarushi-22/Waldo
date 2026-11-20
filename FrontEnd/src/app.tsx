@@ -1,7 +1,7 @@
 import "./app.css";
-import Leaderboard from "./Leaderboard";
+import Leaderboard from "./leaderboard";
 import { useState, useEffect } from "react";
-
+import.meta.env.VITE_API_URL;
 function App() {
   const [gameId, setGameId] = useState<string | null>(null);
   const [playerName, setPlayerName] = useState("");
@@ -10,7 +10,6 @@ function App() {
   const [foundCharacters, setFoundCharacters] = useState<number[]>([]);
   const [selectedCharacterId, setSelectedCharacterId] = useState<number | null>(null);
   const [characters, setCharacters] = useState<any[]>([]);
-  const [characterSelected, setCharacterSelected] = useState(false);
   const [time, setTime] = useState(0);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [timerActive, setTimerActive] = useState(false);
@@ -82,7 +81,6 @@ function App() {
       setGameId(data.gameId);
       setFoundCharacters([]);
       setSelectedCharacterId(null);
-      setCharacterSelected(false);
       setTime(0);
       setElapsedBeforePause(0);
       setIsPaused(false);
@@ -118,7 +116,6 @@ function App() {
       return;
     }
 
-    setCharacterSelected(true);
 
     const image = event.currentTarget;
     const rect = image.getBoundingClientRect();
