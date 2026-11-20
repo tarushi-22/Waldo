@@ -11,7 +11,7 @@ function Leaderboard() {
   const [players, setPlayers] = useState<Player[]>([]);
 
 useEffect(() => {
-  fetch("http://localhost:3000/api/leaderboard")
+  fetch("import.meta.env.VITE_API_URL/api/leaderboard")
     .then((response) => response.json())
     .then((data) => {
       setPlayers(data);
